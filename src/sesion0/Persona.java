@@ -5,7 +5,7 @@
  *
  */
 
-package es.unex.cum.mdp.sesion0;
+package sesion0;
 
 /**
  * Clase que representa a una persona

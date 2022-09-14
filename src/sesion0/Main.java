@@ -1,7 +1,7 @@
 /**
  * Programa principal para usar la clase Persona
  */
-package es.unex.cum.mdp.sesion0;
+package sesion0;
 
 /**
  * @author Luis Arevalo
