@@ -1,7 +1,10 @@
 package test.es.unex.cum.mdp.sesion0;
 
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+import sesion0.Reloj;
+
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 
 /**
@@ -15,7 +18,7 @@ public class TestReloj
     @Test
     public void testReloj(){
         Reloj r= new Reloj();
-        Assertions.assertNotNull(r);
+        assertNotNull(r);
         Reloj r1= new Reloj(1,1,1);
         Assertions.assertNotNull(r1);
     }
