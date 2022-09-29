@@ -1,3 +1,10 @@
+/**
+ * @author Jose Luis Obiang Ela Nanguan
+ * @since 1.0
+ * @see Vehiculo
+ */
+
+
 package sesion01;
 
 import sesion0.Persona;
@@ -7,19 +14,20 @@ import java.util.Objects;
 public class Coche extends Vehiculo{
     private String color;
 
-    public Coche(String color) {
+    public Coche() {
+        color = "";
+    }
+
+
+    public Coche(String marca, String modelo, Persona propietario, Integer bastidor, String color) {
+        super(marca, modelo, propietario, bastidor);
         this.color = color;
     }
 
-    public Coche(Vehiculo v, String color) {
-        super(v);
-        this.color = color;
+    public Coche(String marca, String modelo, Persona propietario, Integer bastidor) {
+        super(marca, modelo, propietario, bastidor);
     }
 
-    public Coche(String marca, String modelo, Persona propietario, String color) {
-        super(marca, modelo, propietario);
-        this.color = color;
-    }
 
     public String getColor() {
         return color;

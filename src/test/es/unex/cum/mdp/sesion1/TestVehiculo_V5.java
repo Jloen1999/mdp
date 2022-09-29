@@ -98,7 +98,7 @@ public class TestVehiculo_V5 {
 		assertFalse(v2.addPiezaV(p5));
 		assertFalse(v2.addPiezaV(p6));
 		assertTrue(v2.addPiezaV(p7));
-		assertFalse(v2.addPiezaV(p8));
+		assertTrue(v2.addPiezaV(p8));
 
 	}
 

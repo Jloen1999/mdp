@@ -1,3 +1,9 @@
+/**
+ * @author Jose Luis Obiang Ela Nanguan
+ * @since 1.0
+ * @see Vehiculo
+ */
+
 package sesion01;
 
 import sesion0.Persona;
@@ -7,18 +13,18 @@ import java.util.Objects;
 public class Camion extends Vehiculo{
     private Integer tonelaje;
 
-    public Camion(Integer tonelaje) {
+    public Camion() {
+        tonelaje = 0;
+    }
+
+
+    public Camion(String marca, String modelo, Persona propietario, Integer bastidor, Integer tonelaje) {
+        super(marca, modelo, propietario, bastidor);
         this.tonelaje = tonelaje;
     }
 
-    public Camion(Vehiculo v, Integer tonelaje) {
-        super(v);
-        this.tonelaje = tonelaje;
-    }
-
-    public Camion(String marca, String modelo, Persona propietario, Integer tonelaje) {
-        super(marca, modelo, propietario);
-        this.tonelaje = tonelaje;
+    public Camion(String marca, String modelo, Persona propietario, Integer bastidor) {
+        super(marca, modelo, propietario, bastidor);
     }
 
     public Integer getTonelaje() {

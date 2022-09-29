@@ -20,7 +20,7 @@ public class Persona {
 	 *  Constructor por defecto
 	 */
 	public Persona() {
-		nombre = new String();
+		nombre = "";
 		dni    = "";
 		edad   = 0;
 	}
@@ -44,9 +44,9 @@ public class Persona {
 	 *  @param p Persona
 	 */
 	public Persona(Persona p) {
-		nombre = p.nombre;
-		dni    = p.dni;
-		edad   = p.edad;
+		this.nombre = p.nombre;
+		this.dni = p.dni;
+		this.edad = p.edad;
 	}
 
 
@@ -103,7 +103,7 @@ public class Persona {
 	 */
 	@Override
 	public String toString() {
-		return "Persona [nombre=" + nombre + ", dni=" + dni + ", edad=" + edad
+		return "Persona [nombre=" + getNombre() + ", dni=" + getDni() + ", edad=" + getEdad()
 				+ "]";
 	}
 

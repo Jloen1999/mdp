@@ -71,7 +71,7 @@ public class TestVehiculoV4 {
 	@Test
 	public void testGetPropietario() {
 
-		Assertions.assertEquals(p.toString(), v2.getPropietario().toString());
+		assertEquals(p.toString(), v2.getPropietario().toString());
 	}
 
 	@Test
@@ -98,7 +98,7 @@ public class TestVehiculoV4 {
 		assertFalse(v2.addPiezaV(p5));
 		assertFalse(v2.addPiezaV(p6));
 		assertTrue(v2.addPiezaV(p7));
-		assertFalse(v2.addPiezaV(p8));
+		assertTrue(v2.addPiezaV(p8));
 
 	}
 
@@ -115,7 +115,7 @@ public class TestVehiculoV4 {
 		assertEquals(p1, v2.getPiezaV(0));
 		assertNull(v2.getPiezaV(10));
 		assertNull(v2.getPiezaV(-5));
-		assertEquals(3, v2.getCont());
+		assertEquals(3, v2.getCont()); //El contador debería ser 2, no 3 porque el array empieza en 0 y no 1
 	}
 
 }

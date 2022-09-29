@@ -1,3 +1,10 @@
+/**
+ * @author Jose Luis Obiang Ela Nanguan
+ * @since 1.0
+ * @see Vehiculo
+ */
+
+
 package sesion01;
 
 import sesion0.Persona;
@@ -7,18 +14,18 @@ import java.util.Objects;
 public class Moto extends Vehiculo{
     private Integer potencia;
 
-    public Moto(Integer potencia) {
+    public Moto() {
+        potencia = 0;
+    }
+
+
+    public Moto(String marca, String modelo, Persona propietario, Integer bastidor, Integer potencia) {
+        super(marca, modelo, propietario, bastidor);
         this.potencia = potencia;
     }
 
-    public Moto(Vehiculo v, Integer potencia) {
-        super(v);
-        this.potencia = potencia;
-    }
-
-    public Moto(String marca, String modelo, Persona propietario, Integer potencia) {
-        super(marca, modelo, propietario);
-        this.potencia = potencia;
+    public Moto(String marca, String modelo, Persona propietario, Integer bastidor) {
+        super(marca, modelo, propietario, bastidor);
     }
 
     public Integer getPotencia() {

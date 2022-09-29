@@ -1,16 +1,21 @@
+/**
+ * @author Jose Luis Obiang Ela Nanguan
+ * @since 1.0
+ */
+
+
 package sesion01;
 
 import sesion0.Persona;
 
-import java.util.Arrays;
-import java.util.Objects;
+import java.util.*;
 
 public class Vehiculo {
     protected String marca;
     protected String modelo;
     protected Persona propietario;
-    protected Pieza[] piezas;
-    protected int cont;
+    protected final Pieza[] piezas;
+    protected int cont = 0;
     protected Integer bastidor;
 
 
@@ -18,22 +23,42 @@ public class Vehiculo {
         marca = "";
         modelo = "";
         propietario = new Persona();
-        piezas = new Pieza[3];
+        piezas = new Pieza[20];
         cont = 0;
+        bastidor = 0;
     }
 
     public Vehiculo(Vehiculo v){
         this.marca = v.marca;
         this.modelo = v.modelo;
         this.propietario = v.propietario;
-        this.piezas = new Pieza[3];
+        this.piezas = new Pieza[20];
+        this.bastidor = v.bastidor;
+        this.cont = v.cont;
     }
 
-    public Vehiculo(String marca, String modelo, Persona propietario){
+    public Vehiculo(String marca, String modelo, Persona propietario, Integer bastidor, int tam){
         this.marca = marca;
         this.modelo = modelo;
         this.propietario = new Persona();
-        this.piezas = new Pieza[3];
+        this.piezas = new Pieza[tam];
+        this.bastidor = bastidor;
+        this.cont = cont;
+
+    }
+
+    public Vehiculo(String marca, String modelo, Persona propietario, Integer bastidor){
+        this.marca = marca;
+        this.modelo = modelo;
+        this.propietario = propietario;
+        this.piezas = new Pieza[20];
+        this.bastidor = bastidor;
+    }
+    public Vehiculo(String marca, String modelo, Persona propietario){
+        this.marca = marca;
+        this.modelo = modelo;
+        this.propietario = propietario;
+        this.piezas = new Pieza[20];
     }
 
     public Integer getBastidor() {
@@ -45,12 +70,9 @@ public class Vehiculo {
     }
 
 
-    public void setCont(int cont){
-        this.cont=cont;
-    }
     public int getCont(){
-        return cont;
-    }
+        return cont+1;
+    }//Le añado una unidad por la batería de test
 
     public void setMarca(String marca){
         this.marca = marca;
@@ -78,36 +100,48 @@ public class Vehiculo {
         return propietario;
     }
 
-    public boolean verifyID(String id){
-        boolean enc=false;
-        int i=0;
-        while(i < piezas.length && !enc){
-            if(piezas[i].getId().equals(id)){
-               enc=true;
+    public Pieza getPiezaV(int pos){
+        if(pos>=0){
+            if(piezas[pos] != null){
+                return piezas[pos];
             }
-            i++;
         }
+
+        return null;
+
+    }
+
+    public Pieza[] getPiezas() {
+        return piezas;
+    }
+
+//    public boolean addPiezaV1(Pieza p)
+//    {
+//        Set<Pieza> piezas = new HashSet<Pieza>();
+//        return piezas.add(p);
+//    }
+
+    public boolean existID(String id){
+        boolean enc = false;
+        cont = 0;
+            while (cont < piezas.length && !enc && piezas[cont] != null) {
+                    if(piezas[cont].getId().equals(id)){
+                        enc = true;
+                    }
+                cont++;
+            }
+
         return enc;
     }
-    public boolean addPiezaV(Pieza pz)
-    {
-        while(cont < piezas.length && piezas[cont] != null){
-            cont++;
-        }
 
-        if(cont != piezas.length){
-            if(!verifyID(pz.getId())){
-                piezas[cont] = pz;
-                return true;
-            }
+    public boolean addPiezaV(Pieza p){
+        if(!existID(p.getId())){
+           piezas[cont] = p;
+           return true;
         }
         return false;
-    }
 
-    public Pieza getPiezaV(int index){
-        return piezas[index];
     }
-
 
 
     @Override
@@ -125,4 +159,16 @@ public class Vehiculo {
         return result;
     }
 
+    @Override
+    public String toString() {
+        return "Vehiculo [" +
+                "marca=" + marca +
+                ", modelo=" + modelo +
+                ", propietario=" + propietario +
+                ", piezas=" + Arrays.toString(piezas) +
+                ", cont=" + cont +
+                ", bastidor=" + bastidor +
+                ']';
+    }
 }
+

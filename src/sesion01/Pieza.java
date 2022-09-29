@@ -66,11 +66,11 @@ public class Pieza {
 
     @Override
     public String toString() {
-        return "Pieza{" +
-                "id='" + id + '\'' +
-                ", nombre='" + nombre + '\'' +
+        return "Pieza [" +
+                "id=" + id +
+                ", nombre=" + nombre +
                 ", stock=" + stock +
-                '}';
+                ']';
     }
 
 
